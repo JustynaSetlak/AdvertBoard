@@ -16,7 +16,8 @@ namespace AdvertBoard.DbAccess.Models
         [MaxLength(500)]
         public string Details { get; set; }
         public Category Category { get; set; }
-        public List<Comment> Comments { get; set; }
         public User Owner { get; set; }
+        public DateTime DateOfCreation { get; set; }
+        public DateTime DateOfLastModification { get; set; }
     }
 }

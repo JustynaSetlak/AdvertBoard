@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvertBoard", "AdvertBoard\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvertBoard.DbAccess", "AdvertBoard.DbAccess\AdvertBoard.DbAccess.csproj", "{FC54541F-EAC2-4018-B8C8-BF64D27D78E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvertBoard.BusinessLogic", "AdvertBoard.BusinessLogic\AdvertBoard.BusinessLogic.csproj", "{329DCF11-D0BA-4213-9C8F-E1285F650229}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvertBoard.Dtos", "AdvertBoard.Dtos\AdvertBoard.Dtos.csproj", "{148E3623-F56F-4489-B1BB-A766B13F630C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{FC54541F-EAC2-4018-B8C8-BF64D27D78E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC54541F-EAC2-4018-B8C8-BF64D27D78E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC54541F-EAC2-4018-B8C8-BF64D27D78E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{329DCF11-D0BA-4213-9C8F-E1285F650229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{329DCF11-D0BA-4213-9C8F-E1285F650229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{329DCF11-D0BA-4213-9C8F-E1285F650229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{329DCF11-D0BA-4213-9C8F-E1285F650229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{148E3623-F56F-4489-B1BB-A766B13F630C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{148E3623-F56F-4489-B1BB-A766B13F630C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{148E3623-F56F-4489-B1BB-A766B13F630C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{148E3623-F56F-4489-B1BB-A766B13F630C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

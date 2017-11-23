@@ -5,19 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AdvertBoard.DbAccess.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace AdvertBoard.DbAccess
 {
-    public class AdvertBoardContext : DbContext
+    public class AdvertBoardContext : IdentityDbContext<User>
     {
-        protected AdvertBoardContext()
+        public AdvertBoardContext()
             : base("name=AdvertBoardContext")
         {
         }
 
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<Comment> Comments { get; set; }
         public DbSet<Advert> Adverts { get; set; }
     }
 }

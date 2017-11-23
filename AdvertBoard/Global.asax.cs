@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using AdvertBoard.Configuration;
+using AdvertBoard.Configuration.AutoMapperConfig;
 
 namespace AdvertBoard
 {
@@ -13,8 +14,9 @@ namespace AdvertBoard
     {
         protected void Application_Start()
         {
-            AutofacConfig.ConfigureDependencyInjection();
             AreaRegistration.RegisterAllAreas();
+            DependencyConfig.ConfigureDependencyInjection();
+            AutoMapperConfig.Initialize();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

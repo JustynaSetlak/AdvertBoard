@@ -1,11 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using AdvertBoard.DbAccess.Models;
+using AdvertBoard.Dtos;
+using AutoMapper;
 
-namespace AdvertBoard.Configuration.AutoMapper
+namespace AdvertBoard.Configuration.AutoMapperConfig
 {
-    public class BuisinessLogicProfile
+    public class BuisinessLogicProfile: Profile
     {
+        public BuisinessLogicProfile()
+        {
+            CreateMap<RegisterUserDto, User>()
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(dest => dest.Email));
+
+            CreateMap<Advert, AdvertDto>();
+        }
     }
 }

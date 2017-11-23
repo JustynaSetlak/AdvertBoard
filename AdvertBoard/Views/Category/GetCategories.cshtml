@@ -1,0 +1,17 @@
+﻿<link href="~/Content/categories.css" rel="stylesheet" />
+@using Microsoft.AspNet.Identity
+@model IEnumerable<AdvertBoard.Models.CategoryViewModel>
+
+@{
+    ViewBag.Title = "GetCategories";
+}
+
+<h2 class="categoriesLabel">Wybierz interesującą Cię kategorię</h2>
+
+@foreach (var category in Model)
+{
+    <div class="col-md-4 categoryContainer">
+        <a href="@Url.Action("GetAdvertsFromCategory", "Category", category)" class="btn btn-default btn-lg category">@category.Name</a>
+    </div>
+}
+

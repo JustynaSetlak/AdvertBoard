@@ -198,21 +198,21 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Configuration\AutofacConfig.cs" />
-    <Compile Include="Configuration\AutoMapper\AutoMapperConfig.cs" />
-    <Compile Include="Configuration\AutoMapper\BuisinessLogicProfile.cs" />
-    <Compile Include="Configuration\AutoMapper\WebProfile.cs" />
+    <Compile Include="Configuration\DependencyConfig.cs" />
+    <Compile Include="Configuration\AutoMapperConfig\AutoMapperConfig.cs" />
+    <Compile Include="Configuration\AutoMapperConfig\BuisinessLogicProfile.cs" />
+    <Compile Include="Configuration\AutoMapperConfig\WebProfile.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -220,6 +220,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\categories.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -255,15 +256,10 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
@@ -274,6 +270,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Category\GetCategories.cshtml" />
+    <Content Include="Views\Category\GetAdvertsFromCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -290,6 +288,20 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdvertBoard.BusinessLogic\AdvertBoard.BusinessLogic.csproj">
+      <Project>{329DCF11-D0BA-4213-9C8F-E1285F650229}</Project>
+      <Name>AdvertBoard.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvertBoard.DbAccess\AdvertBoard.DbAccess.csproj">
+      <Project>{FC54541F-EAC2-4018-B8C8-BF64D27D78E3}</Project>
+      <Name>AdvertBoard.DbAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvertBoard.Dtos\AdvertBoard.Dtos.csproj">
+      <Project>{148E3623-F56F-4489-B1BB-A766B13F630C}</Project>
+      <Name>AdvertBoard.Dtos</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
