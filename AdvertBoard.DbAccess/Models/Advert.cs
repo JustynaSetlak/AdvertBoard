@@ -15,7 +15,9 @@ namespace AdvertBoard.DbAccess.Models
         public string Title { get; set; }
         [MaxLength(500)]
         public string Details { get; set; }
+        public int CategoryId { get; set; }
         public Category Category { get; set; }
+        public string OwnerId { get; set; }
         public User Owner { get; set; }
         public DateTime DateOfCreation { get; set; }
         public DateTime DateOfLastModification { get; set; }

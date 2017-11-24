@@ -9,9 +9,9 @@ namespace AdvertBoard.DbAccess.Interfaces
 {
     public interface IAdvertRepository
     {
-        List<Advert> GetAdvertsFromUser();
+        List<Advert> GetAdvertsFromUser(string userId);
         Advert ModifyAdvert();
         void DeleteAdvert();
-        Advert AddAdvert();
+        Advert AddAdvert(Advert advert);
     }
 }

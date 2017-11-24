@@ -26,5 +26,10 @@ namespace AdvertBoard.DbAccess.Implementation
                         && !x.Owner.Id.Equals(userId))
                 .ToList();
         }
+
+        public Category GetCategory(int id)
+        {
+            return _context.Categories.FirstOrDefault(x => x.Id == id);
+        }
     }
 }

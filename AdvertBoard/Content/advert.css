@@ -1,0 +1,9 @@
+﻿.addAdvertBtn {
+    float: right;
+    margin-bottom: 20px;
+}
+
+.advertDescriptionTextarea {
+    min-width: 300px;
+    min-height: 300px;
+}

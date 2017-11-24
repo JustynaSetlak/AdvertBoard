@@ -1,7 +1,9 @@
 ﻿.category {
     width: 300px;
     height: 100px;
-    border-color: #008000;
+    color: green;
+    background-color: white;
+    display: table-cell;
     text-align: center;
 }
 

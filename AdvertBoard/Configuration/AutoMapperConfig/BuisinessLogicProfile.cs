@@ -1,5 +1,6 @@
 ﻿using AdvertBoard.DbAccess.Models;
 using AdvertBoard.Dtos;
+using AdvertBoard.Dtos.AdvertDtos;
 using AutoMapper;
 
 namespace AdvertBoard.Configuration.AutoMapperConfig
@@ -12,6 +13,10 @@ namespace AdvertBoard.Configuration.AutoMapperConfig
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(dest => dest.Email));
 
             CreateMap<Advert, AdvertDto>();
+            CreateMap<AddAdvertDto, Advert>();
+            CreateMap<Advert, AdvertDto>();
+            CreateMap<User, UserDto>();
+            CreateMap<UserDto, User>();
         }
     }
 }

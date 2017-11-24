@@ -1,5 +1,7 @@
 ﻿using AdvertBoard.Dtos;
+using AdvertBoard.Dtos.AdvertDtos;
 using AdvertBoard.Models;
+using AdvertBoard.Models.Advert;
 using AutoMapper;
 
 namespace AdvertBoard.Configuration.AutoMapperConfig
@@ -10,6 +12,7 @@ namespace AdvertBoard.Configuration.AutoMapperConfig
         {
             CreateMap<RegisterViewModel, RegisterUserDto>();
             CreateMap<RegisterUserDto, RegisterViewModel>();
+            CreateMap<AdvertToAddViewModel, AddAdvertDto>();
         }
     }
 }

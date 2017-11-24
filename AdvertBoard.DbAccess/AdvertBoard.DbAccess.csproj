@@ -56,8 +56,10 @@
     <Compile Include="AdvertBoardContext.cs" />
     <Compile Include="Implementation\AdvertRepository.cs" />
     <Compile Include="Implementation\CategoryRepository.cs" />
+    <Compile Include="Implementation\UserRepository.cs" />
     <Compile Include="Interfaces\IAdvertRepository.cs" />
     <Compile Include="Interfaces\ICategoryRepository.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Migrations\201711231011033_InitialCreate.cs" />
     <Compile Include="Migrations\201711231011033_InitialCreate.Designer.cs">
       <DependentUpon>201711231011033_InitialCreate.cs</DependentUpon>
@@ -69,6 +71,10 @@
     <Compile Include="Migrations\201711231416381_AddedDatesToAdvert.cs" />
     <Compile Include="Migrations\201711231416381_AddedDatesToAdvert.Designer.cs">
       <DependentUpon>201711231416381_AddedDatesToAdvert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711241011201_IdAdded.cs" />
+    <Compile Include="Migrations\201711241011201_IdAdded.Designer.cs">
+      <DependentUpon>201711241011201_IdAdded.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Advert.cs" />
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711231416381_AddedDatesToAdvert.resx">
       <DependentUpon>201711231416381_AddedDatesToAdvert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711241011201_IdAdded.resx">
+      <DependentUpon>201711241011201_IdAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

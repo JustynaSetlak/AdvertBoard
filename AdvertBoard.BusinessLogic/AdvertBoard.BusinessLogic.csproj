@@ -83,8 +83,10 @@
     <Compile Include="IdentityConfig\ApplicationUserManager.cs" />
     <Compile Include="IdentityConfig\ApplicationUserStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AdvertService.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\Interfaces\IAdvertService.cs" />
     <Compile Include="Services\Interfaces\ICategoryService.cs" />
   </ItemGroup>
   <ItemGroup>

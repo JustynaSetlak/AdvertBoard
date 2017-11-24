@@ -1,0 +1,40 @@
+﻿@using GridMvc.Html
+@using GridMvc.Sorting
+<link href="~/Content/advert.css" rel="stylesheet" />
+@model IEnumerable<AdvertBoard.Models.Advert.GetUserAdvertViewModel>
+@{
+    ViewBag.Title = "GetUserAdverts";
+}
+@{
+    int counter = 1;
+}
+<h2>My adverts</h2>
+
+<a href="@Url.Action("AddAdvert", "Advert", FormMethod.Get)" class="btn btn-success addAdvertBtn">Add advert</a>
+@Html.Grid(Model).Columns(columns =>
+{
+
+    columns.Add()
+        .Titled("Number")
+        .RenderValueAs(@<text>@(counter++)</text>)
+        .Sortable(true)
+        .SetWidth(50);
+
+    columns.Add(advert => advert.Title)
+        .Titled("Advert name")
+        .Sortable(true)
+        .SetWidth(100);
+
+    columns.Add(advert => advert.Category.Name)
+        .Titled("Category")
+        .Sortable(true)
+        .SetWidth(100);
+
+    columns.Add(advert => advert.DateOfCreation)
+        .Titled("Date od creation")
+        .Sortable(true)
+        .Format("{0:dd/MM/yyyy}")
+        .SetWidth(80);
+
+    //columns.Add().RenderValueAs(model => "Category " + model.Category.Name);
+}).WithPaging(5).Filterable(true).WithMultipleFilters()

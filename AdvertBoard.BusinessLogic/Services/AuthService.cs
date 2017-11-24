@@ -25,10 +25,10 @@ namespace AdvertBoard.BusinessLogic.Services
             return await _signInManager.PasswordSignInAsync(email, password, rememberMe, false);
         }
 
-        public async Task<IdentityResult> CreateAsync(RegisterUserDto registerUserDto)
+        public Task<IdentityResult> CreateAsync(RegisterUserDto registerUserDto)
         {
             var user = _mapper.Map<RegisterUserDto, User>(registerUserDto);
-            return await _userManager.CreateAsync(user, registerUserDto.Password);
+            return _userManager.CreateAsync(user, registerUserDto.Password);
         }
     }
 }

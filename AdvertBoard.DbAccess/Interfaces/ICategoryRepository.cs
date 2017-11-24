@@ -8,5 +8,6 @@ namespace AdvertBoard.DbAccess.Interfaces
     {
         List<Category> GetAllCategories();
         List<Advert> GetAllAdvertsFromCategory(string name, string userId);
+        Category GetCategory(int id);
     }
 }

@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 
 namespace AdvertBoard.Controllers
 {
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly IMapper _mapper;
