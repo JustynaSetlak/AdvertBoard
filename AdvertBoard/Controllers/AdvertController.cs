@@ -38,11 +38,11 @@ namespace AdvertBoard.Controllers
         [HttpPost]
         public ActionResult AddAdvert(AddAdvertViewModel advertToAdd)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    advertToAdd.Categories = GetCategories();
-            //    return View(advertToAdd);
-            //}
+            if (!ModelState.IsValid)
+            {
+                advertToAdd.Categories = GetCategories();
+                return View(advertToAdd);
+            }
             var userId = User.Identity.GetUserId();
             var advertToAddDto = _mapper.Map<AddAdvertViewModel, AddAdvertDto>(advertToAdd);
             var addedAdvert = _advertService.AddAdvert(advertToAddDto, userId);

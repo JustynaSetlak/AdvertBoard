@@ -26,9 +26,10 @@
                 @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
                 @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new {@class = "text-danger"})
+                <p class="text-danger">@ViewBag.RegisterError</p>
             </div>
             <div>
-                <input type="submit" class="btn btn-success" value="Register" style="height: 40px; width: 280px; margin-top: 10px;"/>
+                <input type="submit" class="btn btn-success accountButton" value="Register"/>
             </div>
 
             @Html.ActionLink("Or log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })

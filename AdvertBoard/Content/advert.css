@@ -1,9 +1,29 @@
 ﻿.addAdvertBtn {
     float: right;
     margin-bottom: 20px;
+    width: 200px;
 }
 
 .advertDescriptionTextarea {
-    min-width: 300px;
+    min-width: 450px;
     min-height: 300px;
+}
+
+.advertInput {
+    min-width: 450px;
+}
+
+.advertButton {
+    width: 400px;
+    margin-right: 10px;
+}
+
+.userAdvertList {
+    height: 600px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body {
+    overflow: hidden;
 }

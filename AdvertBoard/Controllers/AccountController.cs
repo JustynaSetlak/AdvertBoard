@@ -33,6 +33,7 @@ namespace AdvertBoard.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+            ViewBag.LoginError = TempData["LoginError"];
             return View();
         }
 
@@ -52,14 +53,14 @@ namespace AdvertBoard.Controllers
             {
                 return RedirectToAction("GetCategories", "Category");
             }
-
-            ModelState.AddModelError("", @"Invalid login attempt.");
-            return View(model);
+            TempData["LoginError"] = "Invalid login attempt.";
+            return RedirectToAction("Login", "Account");
         }
 
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.RegisterError = TempData["RegisterError"];
             return View();
         }
 
@@ -79,8 +80,8 @@ namespace AdvertBoard.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
-
-            return View(model);
+            TempData["RegisterError"] = "Register process unsuccesful";
+            return RedirectToAction("Register", "Account");
         }
 
         [HttpPost]

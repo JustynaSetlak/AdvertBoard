@@ -1,4 +1,5 @@
-﻿@using AdvertBoard.Models
+﻿@using System.Web.UI.WebControls
+@using AdvertBoard.Models
 @model LoginViewModel
 @{
     ViewBag.Title = "Log in";
@@ -20,7 +21,7 @@
                         @Html.LabelFor(m => m.Password, new {@class = "control-label"})
                         @Html.PasswordFor(m => m.Password, new {@class = "form-control"})
                         @Html.ValidationMessageFor(m => m.Password, "", new {@class = "text-danger"})
-                        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                        <p class ="text-danger">@ViewBag.LoginError</p>
                     </div>
 
                     <div class="checkbox">
@@ -29,7 +30,7 @@
                     </div>
 
                     <div>
-                        <input type="submit" value="Log in" class="btn btn-success" style="height: 40px; width: 280px; margin-top: 10px;"/>
+                        <input type="submit" value="Log in" class="btn btn-success accountButton"/>
                     </div>
                     <p>
                         @Html.ActionLink("Register here", "Register")
