@@ -53,7 +53,7 @@ namespace AdvertBoard.Controllers
                 return RedirectToAction("GetCategories", "Category");
             }
 
-            ModelState.AddModelError("", "Invalid login attempt.");
+            ModelState.AddModelError("", @"Invalid login attempt.");
             return View(model);
         }
 
@@ -79,6 +79,7 @@ namespace AdvertBoard.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             return View(model);
         }
 

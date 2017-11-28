@@ -35,6 +35,14 @@
         .Sortable(true)
         .Format("{0:dd/MM/yyyy}")
         .SetWidth(80);
+    columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .SetWidth(30)
+        .RenderValueAs(advert =>
+            @<b>
+                @Html.ActionLink("Edit", "EditAdvert", "Advert", new { ielo = advert.Id})
+            </b>);
 
     //columns.Add().RenderValueAs(model => "Category " + model.Category.Name);
-}).WithPaging(5).Filterable(true).WithMultipleFilters()
+}).WithPaging(5, 5).Filterable(true).WithMultipleFilters()

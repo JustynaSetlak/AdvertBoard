@@ -28,20 +28,23 @@ namespace AdvertBoard.Controllers
 
         public ActionResult AddAdvert()
         {
-            var allCategories = _categoryService.GetCategories();
-            var categoriesViewModel = _mapper.Map<List<CategoryDto>, List<CategoryViewModel>>(allCategories);
-            var addAdvertViewModel = new AdvertToAddViewModel()
+            var addAdvertViewModel = new AddAdvertViewModel()
             {
-                Categories = categoriesViewModel
+                Categories = GetCategories()
             };
             return View(addAdvertViewModel);
         }
 
         [HttpPost]
-        public ActionResult AddAdvert(AdvertToAddViewModel advertToAdd)
+        public ActionResult AddAdvert(AddAdvertViewModel advertToAdd)
         {
+            //if (!ModelState.IsValid)
+            //{
+            //    advertToAdd.Categories = GetCategories();
+            //    return View(advertToAdd);
+            //}
             var userId = User.Identity.GetUserId();
-            var advertToAddDto = _mapper.Map<AdvertToAddViewModel, AddAdvertDto>(advertToAdd);
+            var advertToAddDto = _mapper.Map<AddAdvertViewModel, AddAdvertDto>(advertToAdd);
             var addedAdvert = _advertService.AddAdvert(advertToAddDto, userId);
             if (addedAdvert == null)
             {
@@ -56,6 +59,39 @@ namespace AdvertBoard.Controllers
             var userAdvertsDto = _advertService.GetAdvertsFromUser(userId);
             var userAdvertViewModelDtos = _mapper.Map<List<GetUserAdvertDto>, List<GetUserAdvertViewModel>>(userAdvertsDto);
             return View(userAdvertViewModelDtos);
+        }
+
+        public ActionResult EditAdvert(int id)
+        {
+            var advertToEdit = _advertService.GetAdvertToEdit(id);
+
+            if (advertToEdit == null || !advertToEdit.OwnerId.Equals(User.Identity.GetUserId()))
+            {
+                return RedirectToAction("GetUserAdverts", "Advert");
+            }
+            var editAdvertViewModel = _mapper.Map<EditAdvertDto, EditAdvertViewModel>(advertToEdit);
+            editAdvertViewModel.Categories = GetCategories();
+            return View(editAdvertViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult EditAdvert(EditAdvertViewModel advertToEdit)
+        {
+            if (!ModelState.IsValid)
+            {
+                advertToEdit.Categories = GetCategories();
+                return View(advertToEdit);
+            }
+            var advertToEditDto = _mapper.Map<EditAdvertViewModel, EditAdvertDto>(advertToEdit);
+            _advertService.EditAdvert(advertToEditDto);
+            return RedirectToAction("GetUserAdverts", "Advert");
+        }
+
+        private List<CategoryViewModel> GetCategories()
+        {
+            var allCategories = _categoryService.GetCategories();
+            var categoriesViewModel = _mapper.Map<List<CategoryDto>, List<CategoryViewModel>>(allCategories);
+            return categoriesViewModel;
         }
     }
 }

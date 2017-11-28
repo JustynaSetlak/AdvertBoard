@@ -1,0 +1,34 @@
+﻿@model AdvertBoard.Models.Advert.EditAdvertViewModel
+@{
+    ViewBag.Title = "EditAdvert";
+}
+
+<h2>EditAdvert</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        
+        @Html.HiddenFor(advert => advert.Id)
+        @Html.HiddenFor(advert => advert.OwnerId)
+        @Html.HiddenFor(advert => advert.DateOfCreation)
+        <div>
+            <strong>Name of advert: </strong>
+            @Html.EditorFor(advert => advert.Title, new {htmlAttributes = new {@class = "form-control"}})
+        </div>
+        <div>
+            <strong>Categories: </strong>
+            @Html.DropDownListFor(x => x.CategoryId, new SelectList(Model.Categories, "Id", "Name"), new {@class = "form-control"})
+        </div>
+        <div>
+            <strong>Description: </strong>
+            @Html.TextAreaFor(advert => advert.Details, new {@class = "form-control advertDescriptionTextarea"})
+        </div>
+        @for (int i = 0; i < Model.Categories.Count; i++)
+        {
+            @Html.HiddenFor(advert => advert.Categories[i])
+        }
+    </div>
+    <input type="submit" class="btn btn-success" value="Edit" />
+    <a href="@Url.Action("GetUserAdverts", "Advert")">cancel</a>
+}

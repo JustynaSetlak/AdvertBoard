@@ -48,5 +48,19 @@ namespace AdvertBoard.BusinessLogic.Services
             var advertsDto = _mapper.Map<List<Advert>, List<GetUserAdvertDto>>(advertsFromUser);
             return advertsDto;
         }
+
+        public EditAdvertDto GetAdvertToEdit(int id)
+        {
+            var advert = _advertRepository.GetAdvert(id);
+            var advertDto = _mapper.Map<Advert, EditAdvertDto>(advert);
+            return advertDto;
+        }
+
+        public void EditAdvert(EditAdvertDto advertToEdit)
+        {
+            advertToEdit.DateOfLastModification = DateTime.UtcNow;
+            var advert = _mapper.Map<EditAdvertDto, Advert>(advertToEdit);
+            _advertRepository.Update(advert);
+        }
     }
 }

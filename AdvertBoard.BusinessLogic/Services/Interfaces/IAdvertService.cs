@@ -9,5 +9,7 @@ namespace AdvertBoard.BusinessLogic.Services.Interfaces
     {
         AdvertDto AddAdvert(AddAdvertDto advertToAddDto, string userId);
         List<GetUserAdvertDto> GetAdvertsFromUser(string userId);
+        EditAdvertDto GetAdvertToEdit(int id);
+        void EditAdvert(EditAdvertDto advertToEdit);
     }
 }

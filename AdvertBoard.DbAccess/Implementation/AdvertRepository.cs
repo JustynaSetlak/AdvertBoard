@@ -24,9 +24,10 @@ namespace AdvertBoard.DbAccess.Implementation
             return adverts;
         }
 
-        public Advert ModifyAdvert()
+        public void Update(Advert advert)
         {
-            throw new System.NotImplementedException();
+            _context.Entry(advert).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public void DeleteAdvert()
@@ -38,6 +39,12 @@ namespace AdvertBoard.DbAccess.Implementation
         {
             _context.Adverts.Add(advert);
             _context.SaveChanges();
+            return advert;
+        }
+
+        public Advert GetAdvert(int id)
+        {
+            var advert = _context.Adverts.FirstOrDefault(x => x.Id == id);
             return advert;
         }
     }
