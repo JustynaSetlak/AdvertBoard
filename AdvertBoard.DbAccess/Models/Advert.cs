@@ -13,7 +13,7 @@ namespace AdvertBoard.DbAccess.Models
         [Required]
         [MaxLength(100)]
         public string Title { get; set; }
-        [MaxLength(500)]
+        [MaxLength(700)]
         public string Details { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }

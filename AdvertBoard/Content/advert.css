@@ -24,6 +24,15 @@
     overflow-y: auto;
 }
 
+.advertDetailsTitle {
+    margin-top: 30px;
+    font-size: 30px;
+    color: #428bca;
+}
+
+.openDeleteModal {
+    cursor: pointer;    
+}
 body {
     overflow: hidden;
 }

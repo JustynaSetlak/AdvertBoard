@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace AdvertBoard.Models.Advert
 {
@@ -9,7 +10,11 @@ namespace AdvertBoard.Models.Advert
         public string Details { get; set; }
         public UserViewModel Owner { get; set; }
         public CategoryViewModel Category { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Date of creation")]
         public DateTime DateOfCreation { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Date of last modification")]
         public DateTime DateOfLastModification { get; set; }
     }
 }

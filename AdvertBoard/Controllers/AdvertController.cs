@@ -25,7 +25,6 @@ namespace AdvertBoard.Controllers
             _mapper = mapper;
         }
 
-
         public ActionResult AddAdvert()
         {
             var addAdvertViewModel = new AddAdvertViewModel()
@@ -102,8 +101,6 @@ namespace AdvertBoard.Controllers
                 return RedirectToAction("GetUserAdverts", "Advert");
             }
             var advertViewModel = _mapper.Map<GetDetailedAdvertDto, GetDetailedAdvertViewModel>(advert);
-            var z = advertViewModel.Owner;
-            var elo = advertViewModel.Owner.Email;
             return View(advertViewModel);
         }
 

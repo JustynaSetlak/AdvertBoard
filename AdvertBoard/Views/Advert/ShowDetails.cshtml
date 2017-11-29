@@ -3,33 +3,44 @@
     ViewBag.Title = "ShowDetails";
 }
 
-<h2>ShowDetails</h2>
+<div class="form-group">
+    <div class="col-md-10 col-md-offset-2">
+        <p class="advertDetailsTitle">@Model.Title</p>
+    </div>
 
-<div>
-    @Html.LabelFor(x => x.Title)
-    @Html.DisplayFor(x => x.Title)
-</div>
+    <div>
+        <p>
+            <strong>Category name:</strong> @Html.DisplayFor(x => x.Category.Name)
+        </p>
+    </div>
 
-<div>
-    @Html.LabelFor(x => x.Category)
-    @Html.DisplayFor(x => x.Category.Name)
-</div>
+    <div>
+        <p>
+            <strong>Date of creation: </strong> @Html.DisplayFor(x => x.DateOfCreation)
+        </p>
+    </div>
 
-<div>
-    @Html.LabelFor(x => x.Details)
-    @Html.DisplayFor(x => x.Details)
-</div>
+    <div>
+        <p>
+            <strong>Date of last modification: </strong> @Html.DisplayFor(x => x.DateOfLastModification)
+        </p>
+    </div>
 
-<div>
-    @Html.LabelFor(x => x.DateOfCreation)
-    @Html.DisplayFor(x => x.DateOfCreation)
-</div>
+    <div>
+        <p>
+            <strong>Email address:</strong> @Html.DisplayFor(x => x.Owner.Email)
+        </p>
+    </div>
 
-<div>
-    @Html.LabelFor(x => x.DateOfLastModification)
-    @Html.DisplayFor(x => x.DateOfLastModification)
-</div>
-<div>
-    @Html.LabelFor(x => x.Owner)
-    @Html.DisplayFor(x => x.Owner.Email)
+    <div>
+        <p>
+            <strong>Owner:</strong>
+            @Html.DisplayFor(x => x.Owner.FirstName)
+            @Html.DisplayFor(x => x.Owner.LastName)
+        </p>
+    </div>
+
+    <div>
+        @Html.DisplayFor(x => x.Details)
+    </div>
 </div>

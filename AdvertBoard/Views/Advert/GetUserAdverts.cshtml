@@ -22,34 +22,35 @@
                 .Titled("Number")
                 .RenderValueAs(@<text>@(counter++)</text>)
                 .Sortable(true)
-                .SetWidth(50);
+                .SetWidth(30);
 
             columns.Add(advert => advert.Title)
                 .Titled("Advert name")
                 .Sortable(true)
-                .SetWidth(100)
+                .SetWidth(110)
                 .Encoded(false)
                 .Sanitized(false)
                 .RenderValueAs(advert =>
-                @<b>
-                    @Html.ActionLink(advert.Title, "ShowDetails", "Advert", new {id = advert.Id}, null)
-                </b>);
+                    @<b>
+                        @Html.ActionLink(advert.Title, "ShowDetails", "Advert", new {id = advert.Id}, null)
+                    </b>);
             columns.Add(advert => advert.Category.Name)
                 .Titled("Category")
                 .Sortable(true)
-                .SetWidth(100);
+                .SetWidth(50);
 
             columns.Add(advert => advert.DateOfCreation)
                 .Titled("Date of creation")
                 .Sortable(true)
                 .Format("{0:dd/MM/yyyy}")
-                .SetWidth(80)
+                .SetWidth(70)
+                .SetFilterWidgetType("")
                 .SortInitialDirection(GridSortDirection.Descending);
             columns.Add(advert => advert.DateOfLastModification)
                 .Titled("Date of last modification")
                 .Sortable(true)
                 .Format("{0:dd/MM/yyyy}")
-                .SetWidth(80);
+                .SetWidth(70);
             columns.Add()
                 .Encoded(false)
                 .Sanitized(false)
@@ -63,9 +64,39 @@
                 .Sanitized(false)
                 .SetWidth(30)
                 .RenderValueAs(advert =>
-                    @<b>
-                        @Html.ActionLink("Delete", "DeleteAdvert", "Advert", new {id = advert.Id}, null)
-                    </b>);
+                    @<a class="openDeleteModal" onclick="openModal(@advert.Id)"><strong>Delete</strong></a>);
         }).Filterable(true).WithMultipleFilters()
     </div>
+    <div id="dialog-confirm">
+        <p><span style="float:left; margin:12px 12px 20px 0;"></span>Are you sure you want to delete this advert?</p>
+    </div>
+ 
 </div>
+@section scripts
+{
+    <script>
+        function openModal(id) {
+            $("#dialog-confirm").dialog("open");
+            $("#dialog-confirm").data("id", id);
+        }
+
+        $(function() {
+            $("#dialog-confirm").dialog({
+                autoOpen: false,
+                resizable: false,
+                height: "auto",
+                width: 400,
+                modal: true,
+                buttons: {
+                    "Delete": function() {
+                        $.post("@Url.Action("DeleteAdvert", "Advert")", { id: $(this).data("id") });
+                        $(this).dialog("close");
+                    },
+                    Cancel: function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        });
+    </script>
+}

@@ -11,7 +11,7 @@ namespace AdvertBoard.Models.Advert
         [StringLength(100)]
         public string Title { get; set; }
         [Required]
-        [StringLength(500)]
+        [StringLength(700)]
         public string Details { get; set; }
         [Required]
         public int CategoryId { get; set; }
