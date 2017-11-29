@@ -1,7 +1,9 @@
 ﻿using AdvertBoard.Dtos;
 using AdvertBoard.Dtos.AdvertDtos;
+using AdvertBoard.Dtos.CommentDtos;
 using AdvertBoard.Models;
 using AdvertBoard.Models.Advert;
+using AdvertBoard.Models.Comment;
 using AutoMapper;
 
 namespace AdvertBoard.Configuration.AutoMapperConfig
@@ -17,6 +19,7 @@ namespace AdvertBoard.Configuration.AutoMapperConfig
             CreateMap<EditAdvertViewModel, EditAdvertDto>();
             CreateMap<UserDto, UserViewModel>();
             CreateMap<GetDetailedAdvertDto, GetDetailedAdvertViewModel>();
+            CreateMap<CommentDto, CommentViewModel>();
         }
     }
 }

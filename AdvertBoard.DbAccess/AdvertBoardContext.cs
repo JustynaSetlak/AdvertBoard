@@ -18,5 +18,6 @@ namespace AdvertBoard.DbAccess
 
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Advert> Adverts { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
     }
 }

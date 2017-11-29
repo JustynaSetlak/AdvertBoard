@@ -86,8 +86,10 @@
     <Compile Include="Services\AdvertService.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\CommentService.cs" />
     <Compile Include="Services\Interfaces\IAdvertService.cs" />
     <Compile Include="Services\Interfaces\ICategoryService.cs" />
+    <Compile Include="Services\Interfaces\ICommentService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

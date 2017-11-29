@@ -44,3 +44,6 @@
         @Html.DisplayFor(x => x.Details)
     </div>
 </div>
+@{
+    Html.RenderAction("GetAll", "Comment", new { id = @Model.Id});
+}

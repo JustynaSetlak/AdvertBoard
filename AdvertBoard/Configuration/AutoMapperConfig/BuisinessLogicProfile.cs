@@ -1,6 +1,7 @@
 ﻿using AdvertBoard.DbAccess.Models;
 using AdvertBoard.Dtos;
 using AdvertBoard.Dtos.AdvertDtos;
+using AdvertBoard.Dtos.CommentDtos;
 using AutoMapper;
 
 namespace AdvertBoard.Configuration.AutoMapperConfig
@@ -20,6 +21,8 @@ namespace AdvertBoard.Configuration.AutoMapperConfig
             CreateMap<Category, CategoryDto>();
             CreateMap<EditAdvertDto, Advert>();
             CreateMap<Advert, GetDetailedAdvertDto>();
+            CreateMap<Comment, CommentDto>();
+            CreateMap<CommentDto, Comment>();
         }
     }
 }

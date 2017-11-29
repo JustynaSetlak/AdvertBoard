@@ -1,0 +1,25 @@
+﻿@model AdvertBoard.Models.Comment.CommentViewModel
+@{
+    var path = Url.Action("Add", "Comment");
+
+    <form onsubmit="return addComment(this, '@path')">
+        @Html.TextBoxFor(x => x.Content)
+        <input type="submit"/>
+    </form>
+}
+
+<script>
+    function addComment(comment, path) {
+        var data = $(comment).serialize();
+        console.log(data);
+        $.ajax({
+            url: path,
+            data: data,
+            method: "POST",
+            success: function(response) {
+                $('#commentsList').prepend(response);
+            }
+        });
+        return false;
+    }
+</script>

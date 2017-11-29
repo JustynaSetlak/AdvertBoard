@@ -56,9 +56,11 @@
     <Compile Include="AdvertBoardContext.cs" />
     <Compile Include="Implementation\AdvertRepository.cs" />
     <Compile Include="Implementation\CategoryRepository.cs" />
+    <Compile Include="Implementation\CommentRepository.cs" />
     <Compile Include="Implementation\UserRepository.cs" />
     <Compile Include="Interfaces\IAdvertRepository.cs" />
     <Compile Include="Interfaces\ICategoryRepository.cs" />
+    <Compile Include="Interfaces\ICommentRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Migrations\201711231011033_InitialCreate.cs" />
     <Compile Include="Migrations\201711231011033_InitialCreate.Designer.cs">
@@ -80,9 +82,14 @@
     <Compile Include="Migrations\201711291143114_ChangedAmountOfSignsInDetails.Designer.cs">
       <DependentUpon>201711291143114_ChangedAmountOfSignsInDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711291740546_AddedComments.cs" />
+    <Compile Include="Migrations\201711291740546_AddedComments.Designer.cs">
+      <DependentUpon>201711291740546_AddedComments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Advert.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -106,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711291143114_ChangedAmountOfSignsInDetails.resx">
       <DependentUpon>201711291143114_ChangedAmountOfSignsInDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711291740546_AddedComments.resx">
+      <DependentUpon>201711291740546_AddedComments.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -21,5 +21,6 @@ namespace AdvertBoard.DbAccess.Models
         public User Owner { get; set; }
         public DateTime DateOfCreation { get; set; }
         public DateTime DateOfLastModification { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }
