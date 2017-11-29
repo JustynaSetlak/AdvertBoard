@@ -15,6 +15,8 @@ namespace AdvertBoard.Configuration.AutoMapperConfig
             CreateMap<AddAdvertViewModel, AddAdvertDto>();
             CreateMap<EditAdvertDto, EditAdvertViewModel>();
             CreateMap<EditAdvertViewModel, EditAdvertDto>();
+            CreateMap<UserDto, UserViewModel>();
+            CreateMap<GetDetailedAdvertDto, GetDetailedAdvertViewModel>();
         }
     }
 }

@@ -11,9 +11,20 @@
         <div class="form-group">
 
             <div>
+                @Html.LabelFor(m => m.FirstName, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.FirstName, "", new {@class = "text-danger"})
+            </div>
+            
+            <div>
+                @Html.LabelFor(m => m.LastName, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+            </div>
+            <div>
                 @Html.LabelFor(m => m.Email, new { @class = "control-label" })
                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Email, "", new {@class = "text-danger"})
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
             </div>
 
             <div>

@@ -218,6 +218,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Advert\AddAdvertViewModel.cs" />
     <Compile Include="Models\Advert\EditAdvertViewModel.cs" />
+    <Compile Include="Models\Advert\GetDetailedAdvertViewModel.cs" />
     <Compile Include="Models\Advert\GetUserAdvertViewModel.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -287,6 +288,7 @@
     <Content Include="Views\Advert\EditAdvert.cshtml" />
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\Advert\ShowDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

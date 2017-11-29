@@ -44,6 +44,7 @@
     <Compile Include="AdvertDto.cs" />
     <Compile Include="AdvertDtos\AddAdvertDto.cs" />
     <Compile Include="AdvertDtos\EditAdvertDto.cs" />
+    <Compile Include="AdvertDtos\GetDetailedAdvertDto.cs" />
     <Compile Include="AdvertDtos\GetUserAdvertDto.cs" />
     <Compile Include="CategoryDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

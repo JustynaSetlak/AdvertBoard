@@ -87,6 +87,26 @@ namespace AdvertBoard.Controllers
             return RedirectToAction("GetUserAdverts", "Advert");
         }
 
+        [HttpPost]
+        public ActionResult DeleteAdvert(int id)
+        {
+
+            return RedirectToAction("GetUserAdverts", "Advert");
+        }
+
+        public ActionResult ShowDetails(int id)
+        {
+            var advert = _advertService.GetAdvertDetails(id);
+            if (advert == null)
+            {
+                return RedirectToAction("GetUserAdverts", "Advert");
+            }
+            var advertViewModel = _mapper.Map<GetDetailedAdvertDto, GetDetailedAdvertViewModel>(advert);
+            var z = advertViewModel.Owner;
+            var elo = advertViewModel.Owner.Email;
+            return View(advertViewModel);
+        }
+
         private List<CategoryViewModel> GetCategories()
         {
             var allCategories = _categoryService.GetCategories();

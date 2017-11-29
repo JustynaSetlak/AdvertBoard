@@ -62,5 +62,12 @@ namespace AdvertBoard.BusinessLogic.Services
             var advert = _mapper.Map<EditAdvertDto, Advert>(advertToEdit);
             _advertRepository.Update(advert);
         }
+
+        public GetDetailedAdvertDto GetAdvertDetails(int id)
+        {
+            var advert = _advertRepository.GetAdvert(id);
+            var advertDto = _mapper.Map<Advert, GetDetailedAdvertDto>(advert);
+            return advertDto;
+        }
     }
 }

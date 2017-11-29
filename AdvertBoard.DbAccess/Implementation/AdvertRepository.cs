@@ -44,7 +44,11 @@ namespace AdvertBoard.DbAccess.Implementation
 
         public Advert GetAdvert(int id)
         {
-            var advert = _context.Adverts.FirstOrDefault(x => x.Id == id);
+            var advert = _context.Adverts
+                .Include(x => x.Owner)
+                .Include(x => x.Category)
+                .FirstOrDefault(x => x.Id == id);
+                                         
             return advert;
         }
     }

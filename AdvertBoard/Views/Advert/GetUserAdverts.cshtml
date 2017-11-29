@@ -27,8 +27,13 @@
             columns.Add(advert => advert.Title)
                 .Titled("Advert name")
                 .Sortable(true)
-                .SetWidth(100);
-
+                .SetWidth(100)
+                .Encoded(false)
+                .Sanitized(false)
+                .RenderValueAs(advert =>
+                @<b>
+                    @Html.ActionLink(advert.Title, "ShowDetails", "Advert", new {id = advert.Id}, null)
+                </b>);
             columns.Add(advert => advert.Category.Name)
                 .Titled("Category")
                 .Sortable(true)
@@ -59,7 +64,7 @@
                 .SetWidth(30)
                 .RenderValueAs(advert =>
                     @<b>
-                        @Html.ActionLink("Delete", "DeleteAdvert", "Advert")
+                        @Html.ActionLink("Delete", "DeleteAdvert", "Advert", new {id = advert.Id}, null)
                     </b>);
         }).Filterable(true).WithMultipleFilters()
     </div>

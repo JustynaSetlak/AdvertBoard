@@ -11,5 +11,6 @@ namespace AdvertBoard.BusinessLogic.Services.Interfaces
         List<GetUserAdvertDto> GetAdvertsFromUser(string userId);
         EditAdvertDto GetAdvertToEdit(int id);
         void EditAdvert(EditAdvertDto advertToEdit);
+        GetDetailedAdvertDto GetAdvertDetails(int id);
     }
 }
