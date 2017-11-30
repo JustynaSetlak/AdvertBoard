@@ -36,6 +36,7 @@ namespace AdvertBoard.Controllers
             var userId = User.Identity.GetUserId();
             var advertsInCategory = _categoryService.GetAdvertsFromCategory(categoryViewModel.Name, userId);
             var advertList = _mapper.Map<List<AdvertDto>, List<GetAdvertViewModel>>(advertsInCategory);
+            ViewBag.Title = categoryViewModel.Name;
             return View(advertList);
         }
     }

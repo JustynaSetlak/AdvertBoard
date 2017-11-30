@@ -1,1 +1,49 @@
-﻿
+﻿<link href="~/Content/categories.css" rel="stylesheet" />
+@using Microsoft.Ajax.Utilities
+@model IEnumerable<AdvertBoard.Models.Advert.GetAdvertViewModel >
+
+@if (Model.Any())
+{
+    <h1 class="text-center">Adverts from <strong class="categoryTitle">@ViewBag.Title</strong> category
+    </h1>
+    <div style="margin: 30px;">
+        <table id="advertsInCategory" class="table table-hover">
+            <thead>
+            <tr>
+                <th class="titleColumn">Title</th>
+                <th>Date of Creation</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var advert in @Model)
+            {
+                <tr title="Show details" class="advertRow" onclick="window.location.href='@Url.Action("ShowDetails", "Advert", new {id = advert.Id})'">
+                    <td  class="titleDisplay">@Html.ActionLink(advert.Title, "ShowDetails", "Advert", new {id = advert.Id}, null)</td>
+                    <td>@advert.DateOfCreation</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}else
+{
+    <h1 class="text-center">Unfortunately there is no adverts in <strong class="categoryTitle">@ViewBag.Title</strong> category</h1>
+}
+
+@section scripts
+{
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css" />
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#advertsInCategory').DataTable({
+                "info": false,
+                "searching": false,
+                "lengthChange": false
+        });
+        });
+    </script>
+
+}

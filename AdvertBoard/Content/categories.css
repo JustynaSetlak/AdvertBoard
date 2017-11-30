@@ -14,3 +14,20 @@
 .categoriesLabel {
     margin-bottom: 50px;
 }
+
+.categoryTitle {
+    color: #47A447;
+}
+
+.titleColumn {
+    width: 700px;
+}
+
+.advertRow {
+    height: 70px;
+    cursor: pointer;
+}
+
+.titleDisplay {
+    font-size: 25px;
+}

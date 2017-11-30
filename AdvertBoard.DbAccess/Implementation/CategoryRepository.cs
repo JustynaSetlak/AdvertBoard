@@ -23,7 +23,8 @@ namespace AdvertBoard.DbAccess.Implementation
         {
             return _context.Adverts
                 .Where(x => x.Category.Name.Equals(name)
-                        && !x.Owner.Id.Equals(userId))
+                        && !x.Owner.Id.Equals(userId)
+                        && x.IsDeleted==false)
                 .ToList();
         }
 
