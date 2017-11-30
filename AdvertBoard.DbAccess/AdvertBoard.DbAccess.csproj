@@ -90,6 +90,14 @@
     <Compile Include="Migrations\201711300732107_DeleteFlagOfAdvert.Designer.cs">
       <DependentUpon>201711300732107_DeleteFlagOfAdvert.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711301115234_Changes.cs" />
+    <Compile Include="Migrations\201711301115234_Changes.Designer.cs">
+      <DependentUpon>201711301115234_Changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711301327024_DateOfCommentCreationAdded.cs" />
+    <Compile Include="Migrations\201711301327024_DateOfCommentCreationAdded.Designer.cs">
+      <DependentUpon>201711301327024_DateOfCommentCreationAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Advert.cs" />
     <Compile Include="Models\Category.cs" />
@@ -123,6 +131,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711300732107_DeleteFlagOfAdvert.resx">
       <DependentUpon>201711300732107_DeleteFlagOfAdvert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301115234_Changes.resx">
+      <DependentUpon>201711301115234_Changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301327024_DateOfCommentCreationAdded.resx">
+      <DependentUpon>201711301327024_DateOfCommentCreationAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

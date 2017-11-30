@@ -20,6 +20,8 @@ namespace AdvertBoard.Configuration.AutoMapperConfig
             CreateMap<UserDto, UserViewModel>();
             CreateMap<GetDetailedAdvertDto, GetDetailedAdvertViewModel>();
             CreateMap<CommentDto, CommentViewModel>();
+            CreateMap<CommentViewModel, CommentDto>();
+            CreateMap<GetCommentOwnerDto, UserViewModel>();
         }
     }
 }

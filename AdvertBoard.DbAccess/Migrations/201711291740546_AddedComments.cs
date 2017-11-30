@@ -11,7 +11,7 @@ namespace AdvertBoard.DbAccess.Migrations
                 "dbo.Comments",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
+                        Id = c.Int(nullable: false, identity:true),
                         Content = c.String(),
                         OwnerId = c.String(maxLength: 128),
                         AdvertId = c.Int(nullable: false),

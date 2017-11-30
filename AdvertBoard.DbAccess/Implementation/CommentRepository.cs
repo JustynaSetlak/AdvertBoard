@@ -20,6 +20,7 @@ namespace AdvertBoard.DbAccess.Implementation
             return _context.Comments
                 .Include(x => x.Owner)
                 .Where(x => x.AdvertId == advertId)
+                .OrderByDescending(x => x.DateOfCreation)
                 .ToList();
         }
 

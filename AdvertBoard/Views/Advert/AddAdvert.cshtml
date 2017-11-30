@@ -11,7 +11,7 @@
         <div>
             <strong>Name of advert: </strong>
             @Html.EditorFor(advert => advert.Title, new { htmlAttributes = new { @class = "form-control advertInput" } })
-            @Html.ValidationMessageFor(advert => advert.Title, "", new {@class = "text-danger"})
+            @Html.ValidationMessageFor(advert => advert.Title, "", new { @class = "text-danger" })
         </div>
         <div>
             <strong>Categories: </strong>
@@ -19,7 +19,7 @@
         </div>
         <div>
             <strong>Description: </strong>
-            @Html.TextAreaFor(advert => advert.Details, new { @class = "form-control advertDescriptionTextarea" })
+            @Html.TextAreaFor(advert => advert.Details, new { maxlength=1200, @class = "form-control advertDescriptionTextarea" })
             @Html.ValidationMessageFor(advert => advert.Details, "", new {@class = "text-danger"})
         </div>
     </div>

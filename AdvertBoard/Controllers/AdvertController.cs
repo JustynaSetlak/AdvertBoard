@@ -2,7 +2,6 @@
 using System.Net;
 using System.Web.Mvc;
 using AdvertBoard.BusinessLogic.Services.Interfaces;
-using AdvertBoard.DbAccess.Models;
 using AdvertBoard.Dtos;
 using AdvertBoard.Models.Advert;
 using AutoMapper;
@@ -91,7 +90,7 @@ namespace AdvertBoard.Controllers
         public ActionResult DeleteAdvert(int id)
         {
             var userId = User.Identity.GetUserId();
-            var elo = _advertService.DeleteAdvert(id, userId);
+            _advertService.DeleteAdvert(id, userId);
             return new HttpStatusCodeResult(HttpStatusCode.NoContent);
         }
 

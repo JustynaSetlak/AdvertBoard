@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AdvertBoard.BusinessLogic.Services.Interfaces;
 using AdvertBoard.DbAccess.Interfaces;
 using AdvertBoard.DbAccess.Models;
@@ -10,11 +11,13 @@ namespace AdvertBoard.BusinessLogic.Services
     public class CommentService: ICommentService
     {
         private readonly ICommentRepository _commentRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
 
-        public CommentService(ICommentRepository commentRepository, IMapper mapper)
+        public CommentService(ICommentRepository commentRepository, IMapper mapper, IUserRepository userRepository)
         {
             _commentRepository = commentRepository;
+            _userRepository = userRepository;
             _mapper = mapper;
         }
 
@@ -25,9 +28,17 @@ namespace AdvertBoard.BusinessLogic.Services
             return commentsDto;
         }
 
-        public CommentDto AddComment(CommentDto comment)
+        public CommentDto AddComment(CommentDto comment, string userId)
         {
+            var user = _userRepository.GetUserById(userId);
+            if (user == null)
+            {
+                return null;
+            }
             var commentToAdd = _mapper.Map<CommentDto, Comment>(comment);
+            commentToAdd.Owner = user;
+            commentToAdd.OwnerId = userId;
+            commentToAdd.DateOfCreation = DateTime.UtcNow;
             var commentAdded = _commentRepository.AddComment(commentToAdd);
             var addedCommentDto = _mapper.Map<Comment, CommentDto>(commentAdded);
             return addedCommentDto;

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using AdvertBoard.Dtos;
 
 namespace AdvertBoard.Models.Advert
 {

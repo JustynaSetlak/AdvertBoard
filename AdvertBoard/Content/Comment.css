@@ -1,0 +1,33 @@
+﻿
+input.commentTextBox {
+    max-width: 100% !important;
+}
+
+.addCommentButton {
+    width: 100%;
+}
+
+.commentForm {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.commentDisplay {
+    max-width: 100%;
+    background-color: #F9F9F9;
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding: 5px;
+    word-break: break-all;
+    border-radius: 10px;
+}
+
+.listOfComments {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 450px;
+}
+
+.ownerCommentLabel {
+    font-size: 11px;
+}

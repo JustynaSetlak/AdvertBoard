@@ -1,5 +1,14 @@
-﻿@model AdvertBoard.Models.Comment.CommentViewModel
-    
+﻿<link href="~/Content/comment.css" rel="stylesheet" />
+
+@model AdvertBoard.Models.Comment.CommentViewModel
+
 <div>
-    @Html.DisplayFor(x => x.Content)
+    <div class="ownerCommentLabel">
+        @Html.DisplayFor(x => x.Owner.FirstName)
+        @Html.DisplayFor(x => x.Owner.LastName) <br />
+    </div>
+    <div class="commentDisplay">
+        @Html.DisplayFor(x => x.Content, new { @class = "commentDisplay" })
+    </div>
+
 </div>

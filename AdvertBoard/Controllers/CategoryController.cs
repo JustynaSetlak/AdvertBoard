@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using AdvertBoard.BusinessLogic.Services.Interfaces;
 using AdvertBoard.Dtos;
 using AdvertBoard.Models;
+using AdvertBoard.Models.Advert;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
 
@@ -34,8 +35,8 @@ namespace AdvertBoard.Controllers
         {
             var userId = User.Identity.GetUserId();
             var advertsInCategory = _categoryService.GetAdvertsFromCategory(categoryViewModel.Name, userId);
-            var advertsDto = _mapper.Map<List<AdvertDto>, List<AdvertDto>>(advertsInCategory);
-            return View(advertsDto);
+            var advertList = _mapper.Map<List<AdvertDto>, List<GetAdvertViewModel>>(advertsInCategory);
+            return View(advertList);
         }
     }
 }

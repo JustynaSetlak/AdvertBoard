@@ -1,12 +1,13 @@
-﻿@using AdvertBoard.Models.Comment
+﻿<link href="~/Content/comment.css" rel="stylesheet" />
+@using AdvertBoard.Models.Comment
 @model IEnumerable<AdvertBoard.Models.Comment.CommentViewModel>
 
-<div class="pre-scrollable" id="commentsList">
+@{
+    Html.RenderPartial("_AddComment", new CommentViewModel { AdvertId = ViewBag.advertId });
+}
+<div class="listOfComments" id="commentsList">
     @foreach (var comment in @Model)
     {
         Html.RenderPartial("_Comment", comment);
     }
 </div>
-@{
-    Html.RenderPartial("_AddComment", new CommentViewModel());
-}

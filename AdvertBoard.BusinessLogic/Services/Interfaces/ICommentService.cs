@@ -6,6 +6,6 @@ namespace AdvertBoard.BusinessLogic.Services.Interfaces
     public interface ICommentService
     {
         List<CommentDto> GetComments(int advertId);
-        CommentDto AddComment(CommentDto comment);
+        CommentDto AddComment(CommentDto comment, string userId);
     }
 }
