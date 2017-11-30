@@ -12,5 +12,6 @@ namespace AdvertBoard.BusinessLogic.Services.Interfaces
         EditAdvertDto GetAdvertToEdit(int id);
         void EditAdvert(EditAdvertDto advertToEdit);
         GetDetailedAdvertDto GetAdvertDetails(int id);
+        bool DeleteAdvert(int id, string userId);
     }
 }

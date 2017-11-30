@@ -33,6 +33,11 @@
 .openDeleteModal {
     cursor: pointer;    
 }
+
+.deletionDialog {
+    display: none;
+}
+
 body {
     overflow: hidden;
 }

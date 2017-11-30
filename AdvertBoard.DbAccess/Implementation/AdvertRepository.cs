@@ -17,7 +17,8 @@ namespace AdvertBoard.DbAccess.Implementation
         public List<Advert> GetAdvertsFromUser(string userId)
         {
             var adverts = _context.Adverts
-                .Where(x => x.OwnerId == userId)
+                .Where(x => x.OwnerId == userId
+                         && x.IsDeleted == false)
                 .Include(x => x.Category)
                 .ToList();
 
@@ -30,9 +31,16 @@ namespace AdvertBoard.DbAccess.Implementation
             _context.SaveChanges();
         }
 
-        public void DeleteAdvert()
+        public bool DeleteAdvert(int id, string userId)
         {
-            throw new System.NotImplementedException();
+            var advert = GetAdvert(id);
+            if (advert == null || advert.OwnerId!=userId)
+            {
+                return false;
+            }
+            advert.IsDeleted = true;
+
+            return _context.SaveChanges() > 0;
         }
 
         public Advert AddAdvert(Advert advert)
@@ -47,7 +55,8 @@ namespace AdvertBoard.DbAccess.Implementation
             var advert = _context.Adverts
                 .Include(x => x.Owner)
                 .Include(x => x.Category)
-                .FirstOrDefault(x => x.Id == id);
+                .FirstOrDefault(x => x.Id == id
+                                  && x.IsDeleted == false);
                                          
             return advert;
         }

@@ -33,7 +33,7 @@ namespace AdvertBoard.BusinessLogic.Services
             }
             var advertToAdd = _mapper.Map<AddAdvertDto, Advert>(advertToAddDto);
             advertToAdd.DateOfCreation = DateTime.UtcNow;
-            advertToAdd.DateOfLastModification = DateTime.UtcNow;
+            advertToAdd.DateOfLastModification = DateTime.UtcNow.Date;
             advertToAdd.Owner = user;
             advertToAdd.OwnerId = userId;
             advertToAdd.Category = _categoryRepository.GetCategory(advertToAdd.CategoryId);
@@ -68,6 +68,11 @@ namespace AdvertBoard.BusinessLogic.Services
             var advert = _advertRepository.GetAdvert(id);
             var advertDto = _mapper.Map<Advert, GetDetailedAdvertDto>(advert);
             return advertDto;
+        }
+
+        public bool DeleteAdvert(int id, string userId)
+        {
+            return _advertRepository.DeleteAdvert(id, userId);
         }
     }
 }

@@ -5,9 +5,6 @@
 @{
     ViewBag.Title = "GetUserAdverts";
 }
-@{
-    int counter = 1;
-}
 <div>
     <div>
         <h2>My adverts</h2>
@@ -15,15 +12,9 @@
     <div class="row">
         <a href="@Url.Action("AddAdvert", "Advert", FormMethod.Get)" class="btn btn-success addAdvertBtn pull-right">Add advert</a>
     </div>
-    <div class="row userAdvertList">
+    <div class="row userAdvertList" id="userTable">
         @Html.Grid(Model).Columns(columns =>
         {
-            columns.Add()
-                .Titled("Number")
-                .RenderValueAs(@<text>@(counter++)</text>)
-                .Sortable(true)
-                .SetWidth(30);
-
             columns.Add(advert => advert.Title)
                 .Titled("Advert name")
                 .Sortable(true)
@@ -31,9 +22,9 @@
                 .Encoded(false)
                 .Sanitized(false)
                 .RenderValueAs(advert =>
-                    @<b>
-                        @Html.ActionLink(advert.Title, "ShowDetails", "Advert", new {id = advert.Id}, null)
-                    </b>);
+                @<b>
+                    @Html.ActionLink(advert.Title, "ShowDetails", "Advert", new { id = advert.Id }, null)
+                </b>);
             columns.Add(advert => advert.Category.Name)
                 .Titled("Category")
                 .Sortable(true)
@@ -56,28 +47,30 @@
                 .Sanitized(false)
                 .SetWidth(30)
                 .RenderValueAs(advert =>
-                    @<b>
-                        @Html.ActionLink("Edit", "EditAdvert", "Advert", new {id = advert.Id}, null)
-                    </b>);
+                @<b>
+                    @Html.ActionLink("Edit", "EditAdvert", "Advert", new { id = advert.Id }, null)
+                </b>);
             columns.Add()
                 .Encoded(false)
                 .Sanitized(false)
                 .SetWidth(30)
                 .RenderValueAs(advert =>
-                    @<a class="openDeleteModal" onclick="openModal(@advert.Id)"><strong>Delete</strong></a>);
+                @<a class="openDeleteModal" onclick="openModal(@advert.Id, this)"><strong>Delete</strong></a>);
         }).Filterable(true).WithMultipleFilters()
     </div>
-    <div id="dialog-confirm">
+    <div id="dialog-confirm" class="deletionDialog">
         <p><span style="float:left; margin:12px 12px 20px 0;"></span>Are you sure you want to delete this advert?</p>
     </div>
- 
+
 </div>
 @section scripts
 {
     <script>
-        function openModal(id) {
+        function openModal(id, element) {
+            $("#dialog-confirm").show();
             $("#dialog-confirm").dialog("open");
             $("#dialog-confirm").data("id", id);
+            $("#dialog-confirm").data("element", element);
         }
 
         $(function() {
@@ -89,8 +82,19 @@
                 modal: true,
                 buttons: {
                     "Delete": function() {
-                        $.post("@Url.Action("DeleteAdvert", "Advert")", { id: $(this).data("id") });
-                        $(this).dialog("close");
+                        var advertId = $(this).data("id");
+                        var element = $(this).data("element");
+                        $.ajax({
+                            url: "DeleteAdvert",
+                            data: "{'id': " + advertId + "}",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            method: "POST",
+                            success: function () {
+                                $(element).parents("tr").first().remove();
+                                $("#dialog-confirm").dialog("close");
+                            }
+                        });
                     },
                     Cancel: function() {
                         $(this).dialog("close");

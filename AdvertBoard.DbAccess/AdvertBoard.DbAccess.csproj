@@ -86,6 +86,10 @@
     <Compile Include="Migrations\201711291740546_AddedComments.Designer.cs">
       <DependentUpon>201711291740546_AddedComments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711300732107_DeleteFlagOfAdvert.cs" />
+    <Compile Include="Migrations\201711300732107_DeleteFlagOfAdvert.Designer.cs">
+      <DependentUpon>201711300732107_DeleteFlagOfAdvert.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Advert.cs" />
     <Compile Include="Models\Category.cs" />
@@ -116,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711291740546_AddedComments.resx">
       <DependentUpon>201711291740546_AddedComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711300732107_DeleteFlagOfAdvert.resx">
+      <DependentUpon>201711300732107_DeleteFlagOfAdvert.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

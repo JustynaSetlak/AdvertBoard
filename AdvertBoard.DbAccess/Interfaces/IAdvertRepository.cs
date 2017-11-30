@@ -11,7 +11,7 @@ namespace AdvertBoard.DbAccess.Interfaces
     {
         List<Advert> GetAdvertsFromUser(string userId);
         void Update(Advert advert);
-        void DeleteAdvert();
+        bool DeleteAdvert(int id, string userId);
         Advert AddAdvert(Advert advert);
         Advert GetAdvert(int id);
     }

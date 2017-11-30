@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using System.Web.Mvc;
 using AdvertBoard.BusinessLogic.Services.Interfaces;
 using AdvertBoard.DbAccess.Models;
@@ -89,8 +90,9 @@ namespace AdvertBoard.Controllers
         [HttpPost]
         public ActionResult DeleteAdvert(int id)
         {
-
-            return RedirectToAction("GetUserAdverts", "Advert");
+            var userId = User.Identity.GetUserId();
+            var elo = _advertService.DeleteAdvert(id, userId);
+            return new HttpStatusCodeResult(HttpStatusCode.NoContent);
         }
 
         public ActionResult ShowDetails(int id)
