@@ -204,7 +204,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Attributes\AnonymousAttribute.cs" />
-    <Compile Include="Attributes\Interfaces\IAuthenticationFilter.cs" />
     <Compile Include="Configuration\DependencyConfig.cs" />
     <Compile Include="Configuration\AutoMapperConfig\AutoMapperConfig.cs" />
     <Compile Include="Configuration\AutoMapperConfig\BuisinessLogicProfile.cs" />
