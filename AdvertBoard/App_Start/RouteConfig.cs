@@ -18,6 +18,12 @@ namespace AdvertBoard
                 url: "{controller}/{action}",
                 defaults: new { controller = "Account", action = "Login" }
             );
+
+            routes.MapRoute(
+                name: "advertFromCategory",
+                url: "{controller}/{action}/{name}",
+                defaults: new {controller = "Category", action = "Login"}
+            );
         }
     }
 }

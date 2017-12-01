@@ -7,7 +7,7 @@
     <h1 class="text-center">Adverts from <strong class="categoryTitle">@ViewBag.Title</strong> category
     </h1>
     <div style="margin: 30px;">
-        <table id="advertsInCategory" class="table table-hover">
+        <table id="advertsInCategory" class="table table-hover table-condensed table-striped">
             <thead>
             <tr>
                 <th class="titleColumn">Title</th>
@@ -18,7 +18,7 @@
             @foreach (var advert in @Model)
             {
                 <tr title="Show details" class="advertRow" onclick="window.location.href='@Url.Action("ShowDetails", "Advert", new {id = advert.Id})'">
-                    <td  class="titleDisplay">@Html.ActionLink(advert.Title, "ShowDetails", "Advert", new {id = advert.Id}, null)</td>
+                    <td  class="titleDisplay"><strong>@advert.Title</strong></td>
                     <td>@advert.DateOfCreation</td>
                 </tr>
             }

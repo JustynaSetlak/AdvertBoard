@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.ApplicationServices;
 using System.Web.Mvc;
+using AdvertBoard.Attributes;
 using AdvertBoard.BusinessLogic.IdentityConfig;
 using AdvertBoard.BusinessLogic.Services;
 using AdvertBoard.Dtos;
@@ -17,7 +18,6 @@ using AutoMapper;
 
 namespace AdvertBoard.Controllers
 {
-    [Authorize]
     public class AccountController : Controller
     {
         private readonly AuthService _authService;
@@ -29,7 +29,7 @@ namespace AdvertBoard.Controllers
             _mapper = mapper;
         }
 
-        [AllowAnonymous]
+        [Anonymous]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -57,7 +57,7 @@ namespace AdvertBoard.Controllers
             return RedirectToAction("Login", "Account");
         }
 
-        [AllowAnonymous]
+        [Anonymous]
         public ActionResult Register()
         {
             ViewBag.RegisterError = TempData["RegisterError"];
@@ -85,6 +85,7 @@ namespace AdvertBoard.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {

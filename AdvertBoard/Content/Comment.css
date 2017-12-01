@@ -14,10 +14,10 @@ input.commentTextBox {
 
 .commentDisplay {
     max-width: 100%;
-    background-color: #F9F9F9;
+    background-color: #f7f7f4;
     font-size: 18px;
     margin-bottom: 20px;
-    padding: 5px;
+    padding: 10px;
     word-break: break-all;
     border-radius: 10px;
 }
